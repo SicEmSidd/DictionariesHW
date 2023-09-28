@@ -1,8 +1,11 @@
 # This program uses a dictionary as a deck of cards.
 
+import random
+
 def main():
     # Create a deck of cards.
-   
+    deck1 = create_deck()
+    print(deck1)
 
     # Get the number of cards to deal.
     num_cards = int(input('How many cards should I deal? '))
@@ -10,8 +13,8 @@ def main():
 
 
     # Deal the cards.
-
-
+    
+    deal_cards(deck1, num_cards)
     
     
 
@@ -46,34 +49,59 @@ def create_deck():
 
     # Return the deck.
 
-
+    return(deck)
 
 
 # The deal_cards function deals a specified number of cards
 # from the deck.
 
-def deal_cards(deck, number):
+def deal_cards(deck1, num_cards):
     # Initialize an accumulator for the hand value.
 
+    hand = {}
+    hand_value = 0
     
     
     # DATA VALIDATION
     # Make sure the number of cards to deal is not
     # greater than the number of cards in the deck (52).
 
-    
+    cards_validator = 0
+    while cards_validator != 1:
+        if num_cards > 52:
+            print("You silly goose! You typed in a number of cards larger than what's in a deck! Try again :D")
+            num_cards = int(input("How many cards should I deal? "))
+        else:
+            cards_validator = 1
     
 
     # Deal the cards and accumulate their values.
     
-
-
     
+    
+
+    for i in range(1, num_cards + 1):
+
+        list_of_keys = list(deck1)
+        random_key = random.choice(list_of_keys)
+        hand[random_key] = deck1[random_key]
+        deck1.pop(random_key)
+        print(deck1)
+        print(hand)
 
     # Display the value of the hand.
 
-    
-    
+    cards_in_hand = []
+    value_of_hand = 0
+    for k, v in hand.items():
+        cards_in_hand.append(k)
+        value_of_hand += v
+    string_hand = ', '.join(cards_in_hand)
+    print("Your cards are:", string_hand)
+    print("The value of your hand is:", value_of_hand)
+
+    # for i in len(hand):
+      #  hand[i]
 
 # Call the main function.
 main()

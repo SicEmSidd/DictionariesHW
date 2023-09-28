@@ -207,3 +207,24 @@ ProduceDictionary={
     }
 }
 
+producelists = ProduceDictionary.items()
+
+
+for i in producelists:
+    # print(i[0])
+    # print(i[1])
+    tempcost = i[1]["cost"]
+    # print("tempcost:", tempcost)
+    tempsold = i[1]["amt_sold"]
+    # print("tempsold:", tempsold)
+    temptotal = i[1]["total"]
+    # print("temptotal:",temptotal)
+    calctotal = tempcost * tempsold
+    realcalctotal = round(calctotal, 2)
+
+    if realcalctotal != temptotal:
+        print("Produce name:", i[0])
+        print(f"Calculated total: ${realcalctotal}")
+        print(f"Stated total: ${temptotal} \n")
+    else:
+        pass

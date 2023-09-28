@@ -13,6 +13,7 @@ sampleDict = {
    }
 }
 
+print(sampleDict["class"]["student"]["marks"]["history"])
 
 
 
@@ -20,7 +21,9 @@ sampleDict = {
 
 dict={"son's name": "Lucas", "son's eyes": "green", "son's height": 32, "son's weight": 25}
 
+dict["son's height"] += 2
 
+print(dict["son's height"])
 
 
 
@@ -31,8 +34,10 @@ sampleDict = {
      'emp2': {'name': 'Emma', 'salary': 8000},
      'emp3': {'name': 'Brad', 'salary': 6500}
 }
+del(sampleDict['emp3']['salary'])
+sampleDict['emp3']['salary'] = 8500
 
-
+print(sampleDict['emp3']['salary'])
 
 
 
@@ -42,4 +47,6 @@ sampleDict = {
 
 dict={"name": "Plato", "country": "Ancient Greece", "born": -427, "teacher": "Socrates", "student": "Aristotle"}
 
+dict['work'] = "Apology", "Phaedo", "Republic", "Symposium"
 
+print(dict)
